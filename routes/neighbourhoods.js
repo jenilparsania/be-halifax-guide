@@ -13,3 +13,18 @@ router.get('/',async (req,res)=> {
     }
 })
 
+router.get(':/slug',async(req,res)=> {
+    try{
+        const n = await Neighbourhood.findOne({slug:req.params.slug})
+
+        if (!n){ return res.status(400).json({message: 'Not Found'})}
+        res.json(n)
+     
+    }catch(err){
+        res.status(500).json({message : 'Server Error', error:err.message})
+
+    }
+})
+
+module.exports = router
+
