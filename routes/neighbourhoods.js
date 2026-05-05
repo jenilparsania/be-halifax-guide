@@ -13,7 +13,7 @@ router.get('/',async (req,res)=> {
     }
 })
 
-router.get(':/slug',async(req,res)=> {
+router.get('/:slug',async(req,res)=> {
     try{
         const n = await Neighbourhood.findOne({slug:req.params.slug})
 
